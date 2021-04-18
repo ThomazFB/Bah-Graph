@@ -1,0 +1,152 @@
+<head>
+    <script src="https://cdn.anychart.com/releases/8.9.0/js/anychart-base.min.js" type="text/javascript"></script>
+</head>
+
+<body>
+    <div id="container" style="width: 800px; height: 500px;"></div>
+</body>
+<script>
+    anychart.onDocumentLoad(function () {
+        renderPieChart(
+            [
+                ["Auditiva", 53],
+                ["Intelectual", 3],
+                ["Motora", 39],
+                ["Visual", 32],
+                ["Surdocego", 0]
+            ]);
+        renderColumnChart(
+            [
+                ["Entre 14 a 17", 4],
+                ["Entre 18 a 24", 12],
+                ["Entre 25 a 39", 65],
+                ["Entre 40 a 59", 39],
+                ["60 ou mais", 7]
+            ]);
+        renderColumnChart(
+            [
+                ["Centro-oeste", 8],
+                ["Nordeste", 47],
+                ["Norte", 3],
+                ["Sudeste", 51],
+                ["Sul", 18]
+            ]);
+        renderColumnChart(
+            [
+                ["Internet", 116],
+                ["Jornal Impresso", 21],
+                ["Outros", 4],
+                ["Rádio", 21],
+                ["TV", 67]
+            ]);
+        renderPieChart(
+            [
+                ["Mais de uma vez por dia", 110],
+                ["Mensalmente", 3],
+                ["Nunca", 2],
+                ["Semanalmente", 4],
+                ["Uma vez por dia", 8]
+            ]);
+        renderColumnChart(
+            [
+                ["Manhã", 58],
+                ["Tarde", 23],
+                ["Noite", 44],
+                ["Nunca", 2]
+            ]);
+        renderVerticalStickChart(
+            [
+                {
+                    x: "A Crítica", value: 2,
+                    normal: { stroke: "10 #9ACFF9" }
+                },
+                {
+                    x: "Diário Online", value: 23,
+                    normal: { stroke: "10 #9ACFF9" }
+                },
+                {
+                    x: "Estadão", value: 42,
+                    normal: { stroke: "10 #9ACFF9" }
+                },
+                {
+                    x: "Folha de São Paulo", value: 50,
+                    normal: { stroke: "10 #9ACFF9" }
+                },
+                {
+                    x: "Gazeta do Povo", value: 8,
+                    normal: { stroke: "10 #9ACFF9" }
+                },
+                {
+                    x: "Imirante", value: 6,
+                    normal: { stroke: "10 #9ACFF9" }
+                },
+                {
+                    x: "Jornal do Commercio (Online)", value: 26,
+                    normal: { stroke: "10 #9ACFF9" }
+                },
+                {
+                    x: "Metrópoles", value: 6,
+                    normal: { stroke: "10 #9ACFF9" }
+                },
+                {
+                    x: "Nenhum", value: 1,
+                    normal: { stroke: "10 #9ACFF9" }
+                },
+                {
+                    x: "O Popular", value: 5,
+                    normal: { stroke: "10 #9ACFF9" }
+                },
+                {
+                    x: "Outros", value: 37,
+                    normal: { stroke: "10 #9ACFF9" }
+                },
+                {
+                    x: "Zero Hora", value: 10,
+                    normal: { stroke: "10 #9ACFF9" }
+                }
+            ]
+        )
+    });
+
+    function renderColumnChart(data) {
+        var chart = anychart.column();
+        chart.column(data);
+        render(chart);
+    }
+
+    function renderPieChart(data) {
+        var chart = anychart.pie().data(data);
+        render(chart);
+    }
+
+    function renderVerticalStickChart(data) {
+        var chart = anychart.vertical();
+        chart.stick(data);
+        render(chart);
+    }
+
+    function renderBubbleChart(data) {
+        chart = anychart.cartesian();
+        chart.bubble(data);
+        chart.title("Bubble Chart");
+        chart.xAxis().title("Years");
+        chart.yAxis().title("Sales");
+        render(chart);
+    }
+
+    function render(chart) {
+        chart.container("container");
+        chart.draw();
+    }
+
+            // renderBubbleChart(
+        //     [
+        //         ["2000", 1100, 1],
+        //         ["2001", 880, 2],
+        //         ["2002", 1100, 5],
+        //         ["2003", 1500, 3],
+        //         ["2004", 921, 3],
+        //         ["2005", 1000, 2],
+        //         ["2006", 1400, 1]
+        //     ]);
+</script>
